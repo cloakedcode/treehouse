@@ -2,6 +2,7 @@
 <head>
     <title></title>
 
+    <link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css' />
     <link rel='stylesheet' type='text/css' href='css/style.css' />
 </head>
 

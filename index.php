@@ -27,7 +27,14 @@ else
 
         for ($i = 0; $i < count($matches[0]); $i++)
         {
-            $services[$matches['id'][$i]] = array(
+            $id = $matches['id'][$i];
+
+            if ($id === 'forrst')
+            {
+                continue;
+            }
+
+            $services[$id] = array(
                 'name' => $matches['name'][$i],
                 'url' => $matches['url'][$i],
             );
