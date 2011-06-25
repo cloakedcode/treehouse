@@ -17,35 +17,44 @@ $(function() {
     <p><a href='<?php echo $user->homepage_url ?>'><?php echo $user->homepage_url ?></a></p>
 </div>
 
-<div id='bio'>
-    <?php echo $user->bio ?>
-</div>
-
-<?php if (empty($services) === FALSE) : ?>
 <div id="tabs">
     <ul>
+        <li><a href='#bio'>Bio</a></li>
+<?php if (empty($services) === FALSE) : ?>
     <?php foreach ($services as $id => $s) : ?>
-        <li><a href='#<?php echo $id ?>'><?php echo $s['name'] ?></a></li>
+        <?php if (isset($s['file'])) : ?>
+            <li><a href='#<?php echo $id ?>'><?php echo $s['name'] ?></a></li>
+        <?php else : ?>
+            <?php $misc[] = $s ?>
+        <?php endif ?>
     <?php endforeach ?>
+<?php endif ?>
+    <?php if (isset($misc)) : ?>
         <li><a href='#misc'>Misc.</a></li>
+    <?php endif ?>
     </ul>
 
+    <div id='bio'>
+        <?php echo $user->bio ?>
+    </div>
+
+<?php if (empty($services) === FALSE) : ?>
     <?php foreach ($services as $id => $service) : ?>
-        <?php if (file_exists("inc/{$id}.php")) : ?>
+        <?php if (isset($s['file'])) : ?>
             <div id='<?php echo $id ?>'>
             <?php include("inc/{$id}.php") ?>
             </div>
-        <?php else : ?>
-            <?php $misc[] = $service ?>
         <?php endif ?>
     <?php endforeach ?>
+<?php endif ?>
 
+<?php if (isset($misc)) : ?>
     <div id='misc'>
         <ul>
-            <?php foreach ($misc as $s) : ?>
-                <li><a href='<?php echo $s['url'] ?>'><?php echo $s['name'] ?></a></li>
-            <?php endforeach ?>
+        <?php foreach ($misc as $s) : ?>
+            <li><a href='<?php echo $s['url'] ?>'><?php echo $s['name'] ?></a></li>
+        <?php endforeach ?>
         </ul>
     </div>
-</div>
 <?php endif ?>
+</div>

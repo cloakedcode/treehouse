@@ -41,6 +41,13 @@ else
                 'name' => $matches['name'][$i],
                 'url' => $matches['url'][$i],
             );
+
+            $file = "inc/{$id}.php";
+
+            if (file_exists($file))
+            {
+                $services[$id]['file'] = $file;
+            }
         }
     }
 
