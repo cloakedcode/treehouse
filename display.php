@@ -12,45 +12,40 @@ $(function() {
 </div>
 
 <h1><?php echo $user->name ?></h1>
-
-<div id='bio'>
-<p><?php echo $user->bio ?></p>
+<div id='info'>
+    <p><?php echo $user->is_a ?></p>
+    <p><a href='<?php echo $user->homepage_url ?>'><?php echo $user->homepage_url ?></a></p>
 </div>
 
+<div id='bio'>
+    <?php echo $user->bio ?>
+</div>
+
+<?php if (empty($services) === FALSE) : ?>
 <div id="tabs">
     <ul>
     <?php foreach ($services as $id => $s) : ?>
         <li><a href='#<?php echo $id ?>'><?php echo $s['name'] ?></a></li>
     <?php endforeach ?>
+        <li><a href='#misc'>Misc.</a></li>
     </ul>
 
-    <?php if (isset($services['tumblr'])) : ?>
-    <div id='tumblr'>
-        <a id='tumblr-post' href='#'>Most recent Tumblr post</a>
+    <?php foreach ($services as $id => $service) : ?>
+        <?php if (file_exists("inc/{$id}.php")) : ?>
+            <div id='<?php echo $id ?>'>
+            <?php include("inc/{$id}.php") ?>
+            </div>
+        <?php else : ?>
+            <?php $misc[] = $service ?>
+        <?php endif ?>
+    <?php endforeach ?>
 
-        <script type="text/javascript">
-        // The variable "tumblr_api_read" is now set.
-        $(function() {
-            $.getScript("<?php echo $services['tumblr']['url'] ?>/api/read/json", function() {
-                $('#tumblr-post').attr('href', tumblr_api_read['posts'][0]['url-with-slug']);
-            });
-        });
-        </script>
+    <div id='misc'>
+        <ul>
+            <?php foreach ($misc as $s) : ?>
+                <li><a href='<?php echo $s['url'] ?>'><?php echo $s['name'] ?></a></li>
+            <?php endforeach ?>
+        </ul>
     </div>
-    <?php endif ?>
-
-    <?php if (isset($services['twitter'])) : ?>
-    <div id='twitter'>
-        <h2>Twitter</h2>
-        <div id='tweets'>
-        </div>
-
-        <script type='text/javascript' src='jquery.twitter.min.js'></script>
-        <script type='text/javascript'>
-        $(function() {
-            $('#tweets').twitter({from: '<?php echo $user->twitter ?>', replies: false, limit: 5});
-        });
-        </script>
-    </div>
-    <?php endif ?>
 </div>
+<?php endif ?>
