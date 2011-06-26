@@ -63,9 +63,15 @@ hr.space {
   -webkit-box-shadow:0px 0px 4px #c2c2c2;
   box-shadow:0px 0px 4px #c2c2c2;
 }
+#info h1 {
+  font-size:250%;
+  margin-top:20px;
+}
 #tabs { clear:left; }
 #tabs h1 { margin-bottom:35px; }
 #tabs h2 { margin-bottom:25px; }
+.ui-widget-header { background:#e6e6e6; }
+.ui-widget-header, .ui-widget-content { border-color:#cccccc; }
 .ui-tabs .ui-tabs-nav li a {
   padding:0.2em 0.5em;
   font-size:16px;
