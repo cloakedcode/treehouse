@@ -1,3 +1,5 @@
+shared_writable_dirs:
+  - /cache
 url_rewrites:
   - 
     rule: "/css/(.+).css /css/less.php?f=$1"
