@@ -10,4 +10,4 @@ url_rewrites:
               - "!-f $request_filename"
               - "!-d $request_filename"
 
-php_extensions: []
+php_extensions: [curl]
