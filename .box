@@ -1,0 +1,13 @@
+url_rewrites:
+  - 
+    rule: "/css/(.+).css /css/less.php?f=$1"
+    conditions:
+              - "!-f $request_filename"
+              - "!-d $request_filename"
+  - 
+    rule: "/(.+) /index.php?u=$1"
+    conditions:
+              - "!-f $request_filename"
+              - "!-d $request_filename"
+
+php_extensions: []
