@@ -40,7 +40,7 @@ $(function() {
 
 <?php if (empty($services) === FALSE) : ?>
     <?php foreach ($services as $id => $service) : ?>
-        <?php if (isset($s['file'])) : ?>
+        <?php if (isset($service['file'])) : ?>
             <div id='<?php echo $id ?>'>
             <?php include("inc/{$id}.php") ?>
             </div>
