@@ -3,7 +3,7 @@
 if (empty($_GET['f']) === false)
 {
     $root = dirname(dirname(__FILE__));
-    require('lessc.php');
+    require($root.'/css/lessphp/lessc.php');
     $input = $root.'/css/'.$_GET['f'].'.less';
     $output = $root.'/cache/'.$_GET['f'].'.css';
 
