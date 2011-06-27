@@ -17,8 +17,10 @@ if (isset($file))
 ?>
 </div>
 <div id='footer'>
+    <?php if ($file !== 'home.php') : ?>
     The person whose picture you see up there, has a copyright on this material, unless otherwise stated.
     <br/>
+    <?php endif ?>
     Tree House made by <a href='/cloakedcode'>Cloaked Code</a>.
 </div>
 
