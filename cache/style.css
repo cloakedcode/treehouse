@@ -31,7 +31,8 @@ a:hover, .ui-widget-content a:hover { color:#19ce29; }
   padding-top:10px;
 }
 #footer {
-  font-size:75%;
+  font-style:italic;
+  font-size:55%;
   margin-top:25px;
   padding:5px;
   border-top:1px dashed gray;

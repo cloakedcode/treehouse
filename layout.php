@@ -17,7 +17,9 @@ if (isset($file))
 ?>
 </div>
 <div id='footer'>
-    No copyright.
+    The person whose picture you see up there, has a copyright on this material, unless otherwise stated.
+    <br/>
+    Tree House made by <a href='/cloakedcode'>Cloaked Code</a>.
 </div>
 
 </body>

@@ -19,7 +19,6 @@ $(function() {
         }
     });
 });
-
 </script>
 
 <h2><a href='<?php echo $service['url'] ?>'><?php echo $github_account ?>'s</a> Repositories</h2>

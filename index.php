@@ -2,7 +2,8 @@
 
 if (empty($_GET['u']))
 {
-    header('HTTP/1.1 404 Not found');
+    $file = 'home.php';
+    include('layout.php');
     exit;
 }
 
