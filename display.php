@@ -12,7 +12,7 @@ $(function() {
 </div>
 
 <div id='info'>
-    <h1><?php echo $user->name ?></h1>
+    <h1><a href="<?php echo $user->url ?>"><?php echo $user->name ?></a></h1>
     <p><?php echo $user->is_a ?></p>
     <p><a href='<?php echo $user->homepage_url ?>'><?php echo $user->homepage_url ?></a></p>
 </div>
