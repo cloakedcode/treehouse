@@ -11,7 +11,7 @@ $(function() {
 
             $.each($(resp.data).sort('pushed_at', 'desc'), function(i, val) {
                 $('#github-repos > ul').append(
-                    '<li><a href="'+val['html_url']+'">'+val['name']+'</a><p>'+((val['description'].length > 0) ? val['description'] : '(No description.)')+'</p></li>'
+                    '<li><a href="'+val['html_url']+'">'+val['name']+'</a><p>'+((val['description']) ? val['description'] : '(No description.)')+'</p></li>'
                 );
             });
         }
